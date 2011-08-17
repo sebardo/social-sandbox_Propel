@@ -55,7 +55,7 @@ Run the following commands:
  
 2.3 - Run the following commands:
     
-    doctrine:buil --all --no-confirmation
+    propel:buil --all --no-confirmation
  
 and 
     
