@@ -16,7 +16,7 @@ To download the Social Sandbox, you have two options:
 ### Download an archive file (*recommended*)
 
 The easiest way to get started is to download an archive of the standard edition
-(https://sebardo@github.com/sebardo/social-sandbox.git). Unpack it somewhere under your web server root
+(https://sebardo@github.com/sebardo/social-sandbox_Propel.git). Unpack it somewhere under your web server root
 directory and you're done. The web root is wherever your web server (e.g. Apache)
 looks when you access `http://localhost` in a browser.
 
@@ -27,8 +27,8 @@ But if you still want to use Git, you are on your own.
 
 Run the following commands:
 
-    git clone git://github.com/sebardo/social-sandbox.git
-    cd social-sandbox
+    git clone git://github.com/sebardo/social-sandbox_Propel.git
+    cd social-sandbox_Propel
 
 
 2) Installation
@@ -42,13 +42,17 @@ Run the following commands:
 2.2 - Set the database in this scenario is called test
     
     all:
-      doctrine:
-        class: sfDoctrineDatabase
+      propel:
+        class:        sfPropelDatabase
         param:
-          dsn: mysql:host=localhost;dbname=test
-          username: root
-          password:
-
+          classname:  PropelPDO
+          dsn:        mysql:dbname=test;host=localhost
+          username:   root
+          password:   
+          encoding:   utf8
+          persistent: true
+          pooling:    true
+ 
 2.3 - Run the following commands:
     
     doctrine:buil --all --no-confirmation
@@ -74,7 +78,7 @@ and
 
 2.7 - To verify that the network is installed and ready to extenderce according usuarce and objectives, your browser put the url of the host.
 
-    http://social-sandbox
+    http://social-sandbox_Propel
 
 What's inside?
 ---------------
@@ -84,7 +88,7 @@ The Social Sandbox Edition comes pre-configured with the following plugins:
 * **InboxPlugin** - Adds private messages
 * **EventPlugin** - Adds events plugin
 * **PluginPlugin** - Adds photos plugin
-* **sfDoctrineGuardPlugin** - Modified plugin
+* **sfGuardPlugin** - Modified plugin
 * **sfFormExtraPlugin** - Dependent plugin
 * **sfThumbnailPlugin** - Dependent plugin
 
