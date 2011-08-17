@@ -1,0 +1,15 @@
+propel:
+  _attributes:      { package: plugins.InboxPlugin.lib.model }
+  
+  inbox:
+    _attributes:    { phpName: inbox }
+    id:             ~
+    user_id:        { type: integer, notnull: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade, foreignAlias: Inboxs }
+    dest_user_id:   { type: integer, notnull: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade, foreignAlias: InboxsDest }
+    title:          { type: varchar, size: 255}
+    description:    { type: clob, notnull: true }
+    is_active:      { type: boolean}
+    reply:          { type: boolean }
+    record_id:      { type: integer }
+    featured:       { type: boolean }
+    created_at:     ~

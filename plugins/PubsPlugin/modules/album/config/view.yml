@@ -1,0 +1,7 @@
+all:
+  stylesheets:    []
+  javascripts:    [/sfGuardPlugin/js/jquery-1.6.1.js]
+
+showSuccess:
+  stylesheets:    [ ../PubsPlugin/css/nyroModal.css, ../PubsPlugin/js/jqueryui/css/theme/jquery-ui-1.8.9.custom.css, ../PubsPlugin/css/jquery.Jcrop.css, ../PubsPlugin/css/galery.css]
+  javascripts:    [ ../PubsPlugin/js/jquery.Jcrop.min.js, ../PubsPlugin/js/jquery.nyroModal.custom.js, ../PubsPlugin/js/jquery.functions.js, ../PubsPlugin/js/jqueryui/js/jquery-ui-1.8.9.custom.min.js, ../PubsPlugin/js/jeditable/js/jquery.jeditable.js, ../PubsPlugin/js/validator/jquery.validate.min.js, ../PubsPlugin/js/validator/lib/jquery.metadata.js, ../PubsPlugin/js/galery.js ]

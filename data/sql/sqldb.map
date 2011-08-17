@@ -1,0 +1,4 @@
+# Sqlfile -> Database map
+plugins.sfGuardPlugin.lib.model.schema.sql=propel
+plugins.InboxPlugin.lib.model.schema.sql=propel
+plugins.PubsPlugin.lib.model.schema.sql=propel

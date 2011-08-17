@@ -1,0 +1,7 @@
+all:
+  stylesheets:    [/PubsPlugin/css/event.css]
+  javascripts:    [/sfGuardPlugin/js/jquery-1.6.1.js]
+newSuccess:
+  stylesheets:    [/PubsPlugin/js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css]
+  javascripts:    [/PubsPlugin/js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js]
+

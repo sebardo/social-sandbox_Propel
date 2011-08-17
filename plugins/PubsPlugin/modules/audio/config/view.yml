@@ -1,0 +1,9 @@
+all:
+  stylesheets:    [/PubsPlugin/css/audio.css]
+  javascripts:    [/sfGuardPlugin/js/jquery-1.6.1.js, /sfGuardPlugin/js/livevalidation_standalone.compressed.js]
+listenSuccess:
+  has_layout:     false
+newSuccess:
+  has_layout:     false
+editSuccess:
+  has_layout:     false

@@ -1,0 +1,1 @@
+Like (<?php echo count($favlikes); ?>)

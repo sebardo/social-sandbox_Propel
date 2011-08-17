@@ -1,0 +1,177 @@
+propel:
+  _attributes:      { package: plugins.PubsPlugin.lib.model }
+
+  Location:
+    _attributes:    { phpName: Location }
+    id:             ~
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    description:    { type: varchar, size: 255, notnull: true }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~
+
+  Favlike:
+    _attributes:    { phpName: Favlike }
+    id:             ~
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    dest_user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~
+  
+  Comment:
+    _attributes:    { phpName: Comment }
+    id:             ~
+    description: { type: varchar, size: 1024, notnull: true }
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    dest_user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~
+
+  Pubs:
+    _attributes:    { phpName: Pubs }
+    id:             ~
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    dest_user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~
+    
+  Audio:
+    _attributes:    { phpName: Audio }
+    id:             ~
+    filename:       { type: varchar, size: 255, notnull: true }
+    description:    { type: varchar, size: 500, notnull: true }
+    plays:          { type: integer, notnull: true }
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    dest_user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~
+    
+  Audio_has_playlist:
+    _attributes:    { phpName: AudioHasPlaylist }
+    id:             ~
+    audio_id:       { type: integer, notnull: true, foreignTable: Audio, foreignReference: id, onDelete: cascade }
+    pl_id:          { type: integer, notnull: true, foreignTable: Playlist, foreignReference: id, onDelete: cascade }
+    orden:          { type: integer}
+
+  Playlist:
+    _attributes:    { phpName: Playlist }
+    id:              ~
+    name:           { type: varchar,  size: 255, notnull: true }
+    user_id:        { type: integer, notnull: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    description: { type: varchar, size: 1024, notnull: true }
+    image:          { type: varchar,  size: 255, notnull: true }
+    is_active:      { type: boolean, notnull: false }
+    plays:          { type: integer, notnull: true }
+    created_at:     ~
+
+  Text:
+    _attributes:    { phpName: Text }
+    id:             ~
+    user_id:        { type: integer, notnull: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    description:    { type: varchar,  size: 1024, notnull: true }
+    created_at:     ~
+ 
+  Link:
+    _attributes:    { phpName: Link }
+    id:             ~
+    user_id:    { type: integer, notnull: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    url:        { type: varchar,  size: 1024, notnull: true }
+    image:       { type: varchar,  size: 1024, notnull: true }
+    title:       { type: varchar,  size: 255, notnull: true }
+    site_name:        { type: varchar,  size: 255, notnull: true }
+    description:        { type: varchar,  size: 1024, notnull: true }
+    created_at:     ~
+
+  Follow:
+    _attributes:    { phpName: Follow }
+    id:             ~
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    follow_id:      { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    is_active:      { type: integer, required: true, default: 2 }
+    created_at:     ~  
+
+  Setting:
+    _attributes:    { phpName: Setting }
+    id:             ~
+    name:           { type: varchar,  size: 255}
+    description:    { type: varchar,  size: 1024, notnull: true }
+    is_active:      { type: boolean, required: true, default: 0 }
+    created_at:     ~  
+
+  Notification:
+    _attributes:    { phpName: Notification }
+    id:             ~
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    dest_user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    related_model:  { type: varchar, size: 255, notnull: true }
+    created_at:     { type: varchar,  size: 255, notnull: false } 
+    is_active:      { type: boolean, required: true, default: 0}
+
+  Setting_has_User:
+    _attributes:    { phpName: SettingHasUser }
+    id:             ~
+    setting_id:        { type: integer, primaryKey: true, required: true, foreignTable: Setting, foreignReference: id, onDelete: cascade }
+    user_id:   { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    record_model:   { type: varchar, size: 255, notnull: true }
+    record_id:      {type: integer, notnull: true}
+    is_active:      { type: boolean, required: true, default: 0}
+    created_at:     ~ 
+
+  Event:
+    _attributes:    { phpName: Event }
+    id:             ~
+    setting_id:     { type: integer, primaryKey: true, required: true, foreignTable: Setting, foreignReference: id, onDelete: cascade }
+    user_id:        { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    name:           { type: varchar, size: 255, notnull: true }
+    description:    { type: varchar, size: 25556, notnull: true }
+    date:           { type: date, notnull: true }
+    hour:           { type: time, notnull: true }
+    end_date:       { type: date }
+    end_hour:       { type: time }
+    is_active:      { type: boolean, required: true, default: 1}
+    address:        { type: varchar, size: 255, notnull: true }
+    latitude:       { type: float, size: 9, scale: 7, notnull: true  }
+    longitude:      { type: float, size: 9, scale: 7, notnull: true  }
+    image:          { type: varchar, size: 255 }
+    created_at:     ~ 
+
+  Photo:
+    id:          ~
+    album_id:   { type: integer, primaryKey: true, required: true, foreignTable: Album_photo, foreignReference: id, onDelete: cascade   }
+    title:      { type: varchar, size: 255 }
+    name:       { type: varchar, size: 255, notnull: true }
+    ord:        { type: integer }
+    x1:         { type: integer }
+    y1:         { type: integer }
+    x2:         { type: integer }
+    y2:         { type: integer }
+    created_at:     ~ 
+
+  Album_photo:
+    id:         { type: integer, primary: true, autoincrement: true }
+    user_id:    { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade  }
+    cover_id:   { type: integer, primaryKey: true, required: true, foreignTable: Photo, foreignReference: album_id, onDelete: cascade  }
+    ord:        { type: integer }
+    name:       { type: varchar, size: 255, notnull: true }
+    created_at:     ~ 
+
+  Tags_photo:
+    photo_id:   { type: integer, primaryKey: true, required: true, foreignTable: Photo, foreignReference: id, onDelete: cascade }
+    x1:         { type: integer, notnull: true }
+    y1:         { type: integer, notnull: true }
+    x2:         { type: integer, notnull: true }
+    y2:         { type: integer, notnull: true }
+    name:       { type: varchar, size: 255, notnull: true }
+
+  Profile_photo:
+    photo_id:    { type: integer, primaryKey: true, required: true, foreignTable: Photo, foreignReference: id, onDelete: cascade  }
+    user_id:     { type: integer, primaryKey: true, required: true, foreignTable: sf_guard_user , foreignReference: id, onDelete: cascade  }
